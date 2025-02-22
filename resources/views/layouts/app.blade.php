@@ -17,7 +17,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
                                 class="user-image img-circle elevation-2" alt="User Image">
-                            <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
+                            <span class="d-none d-md-inline">Caue</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
@@ -25,8 +25,8 @@
                                 <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
                                     class="img-circle elevation-2" alt="User Image">
                                 <p>
-                                    {{ Auth::user()->name }}
-                                    <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
+                                    
+                                    <small>Member since 10/2023</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -36,7 +36,7 @@
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Sign out
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </li>
