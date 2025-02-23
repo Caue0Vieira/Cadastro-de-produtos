@@ -74,7 +74,6 @@ class ProdutosController extends AppBaseController
     public function store(CreateProdutosRequest $request)
     {
         $input = $request->all();
-
         $produtos = $this->produtosRepository->create($input);
 
         Flash::success('Produtos saved successfully.');
