@@ -25,6 +25,6 @@
 <!-- Category Id Field -->
 <div class="col-sm-12">
     {!! Form::label('category_id', 'Category Id:') !!}
-    <p>{{ $produtos->categor y_id }}</p>
+    <p>{{ $produtos->category ? $produtos->category->nome : 'Sem Categoria' }}</p>
 </div>
 

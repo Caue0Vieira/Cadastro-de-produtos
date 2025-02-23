@@ -18,7 +18,7 @@
                     <td>{{ $produtos->descricao }}</td>
                     <td>{{ $produtos->preco }}</td>
                     <td>{{ $produtos->quantidade }}</td>
-                    <td>{{ $produtos->category_id }}</td>
+                    <td>{{ $produtos->category ? $produtos->category->nome : 'Sem Categoria' }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['produtos.destroy', $produtos->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
@@ -42,6 +42,7 @@
 
     <div class="card-footer clearfix">
         <div class="float-right">
+
         </div>
     </div>
 </div>

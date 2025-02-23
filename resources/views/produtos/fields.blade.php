@@ -13,7 +13,7 @@
 <!-- Preco Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('preco', 'Preco:') !!}
-    {!! Form::number('preco', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('preco', null, ['class' => 'form-control', 'required', 'step' => '0.01']) !!}
 </div>
 
 <!-- Quantidade Field -->
@@ -22,8 +22,10 @@
     {!! Form::number('quantidade', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Category Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('category_id', 'Category Id:') !!}
-    {!! Form::number('category_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('category_id', 'Category:') !!}
+    {!! Form::select('category_id', 
+        $categories->pluck('nome', 'id')->toArray(), 
+        null, 
+        ['class' => 'form-control', 'required']) !!}
 </div>

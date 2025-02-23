@@ -15,6 +15,23 @@
                 </div>
             </div>
         </div>
+        <!-- Formulário de pesquisa -->
+<div class="form-group">
+    {!! Form::open(['route' => 'produtos.index', 'method' => 'GET']) !!}
+        <div class="input-group">
+            <!-- Campo de pesquisa por nome -->
+            {!! Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar produtos...']) !!}
+            
+            <!-- Campo de pesquisa por categoria -->
+            {!! Form::select('category_id', $categories->pluck('nome', 'id')->toArray(), null, ['class' => 'form-control', 'placeholder' => 'Selecione uma categoria']) !!}
+
+            <span class="input-group-btn">
+                {!! Form::submit('Pesquisar', ['class' => 'btn btn-primary']) !!}
+            </span>
+        </div>
+    {!! Form::close() !!}
+</div>
+
     </section>
 
     <div class="content px-3">

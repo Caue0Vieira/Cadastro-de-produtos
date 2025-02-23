@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Category;
+
 
 use App\Http\Requests\CreateProdutosRequest;
 use App\Http\Requests\UpdateProdutosRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Categoria;
+use App\Models\Produtos;
 use App\Repositories\ProdutosRepository;
 use Illuminate\Http\Request;
 use Flash;
@@ -25,9 +29,31 @@ class ProdutosController extends AppBaseController
     public function index(Request $request)
     {
         $produtos = $this->produtosRepository->paginate(10);
+        $search = $request->input('search');  
+        $categoryId = $request->input('category_id'); 
+    
+        
+        $produtos = Produtos::query();
+    
+        // Filtro de pesquisa por nome ou descrição
+        if ($search) {
+            $produtos = $produtos->where('nome', 'like', '%' . $search . '%')
+                                 ->orWhere('descricao', 'like', '%' . $search . '%');
+        }
+    
+        // Filtro de pesquisa por categoria
+        if ($categoryId) {
+            $produtos = $produtos->where('category_id', $categoryId);
+        }
+    
+        
+        $produtos = $produtos->paginate(10);
+    
+        
+        $categories = Categoria::all(); 
+    
+        return view('produtos.index', compact('produtos', 'categories'));
 
-        return view('produtos.index')
-            ->with('produtos', $produtos);
     }
 
     /**
@@ -35,7 +61,11 @@ class ProdutosController extends AppBaseController
      */
     public function create()
     {
-        return view('produtos.create');
+        $categories = Categoria::all();
+
+        
+        return view('produtos.create', compact('categories'));
+        
     }
 
     /**
@@ -74,6 +104,13 @@ class ProdutosController extends AppBaseController
     public function edit($id)
     {
         $produtos = $this->produtosRepository->find($id);
+        $produts = Produtos::findOrFail($id);
+
+        // Obter todas as categorias
+        $categories = Categoria::all();
+    
+        // Passar o produto e as categorias para a view de edição
+        
 
         if (empty($produtos)) {
             Flash::error('Produtos not found');
@@ -81,7 +118,8 @@ class ProdutosController extends AppBaseController
             return redirect(route('produtos.index'));
         }
 
-        return view('produtos.edit')->with('produtos', $produtos);
+        return view('produtos.edit', compact('produtos', 'categories', 'produtos'));
+
     }
 
     /**

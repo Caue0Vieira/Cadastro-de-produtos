@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Produtos extends Model
 {
     public $table = 'products';
-    use SoftDeletes; 
+    use SoftDeletes;
+
     protected $dates = ['deleted_at'];
 
     public $fillable = [
@@ -38,6 +39,6 @@ class Produtos extends Model
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(\App\Models\Category::class, 'category_id');
+        return $this->belongsTo(\App\Models\Categoria::class, 'category_id');
     }
 }

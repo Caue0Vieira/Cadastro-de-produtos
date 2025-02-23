@@ -31,6 +31,6 @@ class Categoria extends Model
 
     public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(\App\Models\Product::class, 'category_id');
+        return $this->hasMany(\App\Models\Produtos::class, 'category_id');
     }
 }
