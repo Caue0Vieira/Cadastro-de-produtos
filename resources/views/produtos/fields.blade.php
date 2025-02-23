@@ -6,14 +6,14 @@
 
 <!-- Descricao Field -->
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('descricao', 'Descricao:') !!}
+    {!! Form::label('descricao', 'Descrição:') !!}
     {!! Form::textarea('descricao', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Preco Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('preco', 'Preco:') !!}
-    {!! Form::number('preco', null, ['class' => 'form-control', 'required', 'step' => '0.01']) !!}
+    {!! Form::label('preco', 'Preço:') !!}
+    {!! Form::number('preco', null, ['class' => 'form-control', 'required', 'step' => '0.01', 'min' => '0.00']) !!}
 </div>
 
 <!-- Quantidade Field -->
@@ -23,7 +23,7 @@
 </div>
 
 <div class="form-group col-sm-6">
-    {!! Form::label('category_id', 'Category:') !!}
+    {!! Form::label('category_id', 'Categoria:') !!}
     {!! Form::select('category_id', 
         $categories->pluck('nome', 'id')->toArray(), 
         null, 

@@ -6,13 +6,13 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>
-Produtos Details
+Detalhes Produtos
                     </h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('produtos.index') }}">
-                                                    Back
+                                                    Voltar
                                             </a>
                 </div>
             </div>

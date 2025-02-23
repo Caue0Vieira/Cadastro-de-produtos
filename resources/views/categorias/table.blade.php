@@ -4,8 +4,8 @@
             <thead>
             <tr>
                 <th>Nome</th>
-                <th>Descricao</th>
-                <th colspan="3">Action</th>
+                <th>Descrição</th>
+                <th colspan="3">Ação</th>
             </tr>
             </thead>
             <tbody>

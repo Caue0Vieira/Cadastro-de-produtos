@@ -9,14 +9,14 @@
 
 <li class="nav-item">
     <a href="{{ route('categorias.index') }}" class="nav-link {{ Request::is('categorias*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class=></i>
         <p>Categorias</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('produtos.index') }}" class="nav-link {{ Request::is('produtos*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class=""></i>
         <p>Produtos</p>
     </a>
 </li>

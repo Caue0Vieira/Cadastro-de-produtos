@@ -73,10 +73,19 @@ class ProdutosController extends AppBaseController
      */
     public function store(CreateProdutosRequest $request)
     {
+        $request->validate(
+            Produtos::rules(),
+        [
+            'nome.required' => 'O campo nome é obrigatório.',
+            'nome.string' => 'O campo nome deve ser uma string válida.',
+            'nome.max' => 'O campo nome não pode ter mais que 255 caracteres.',
+            'nome.unique' => 'Este nome já está em uso. Escolha outro nome para o produto.', 
+        ]
+        );
         $input = $request->all();
         $produtos = $this->produtosRepository->create($input);
 
-        Flash::success('Produtos saved successfully.');
+        Flash::success('Produto salvo.');
 
         return redirect(route('produtos.index'));
     }
@@ -89,7 +98,7 @@ class ProdutosController extends AppBaseController
         $produtos = $this->produtosRepository->find($id);
 
         if (empty($produtos)) {
-            Flash::error('Produtos not found');
+            Flash::error('Produto não encontrado');
 
             return redirect(route('produtos.index'));
         }
@@ -112,7 +121,7 @@ class ProdutosController extends AppBaseController
         
 
         if (empty($produtos)) {
-            Flash::error('Produtos not found');
+            Flash::error('Produto não encontrado');
 
             return redirect(route('produtos.index'));
         }
@@ -124,19 +133,19 @@ class ProdutosController extends AppBaseController
     /**
      * Update the specified Produtos in storage.
      */
-    public function update($id, UpdateProdutosRequest $request)
+    public function update($id, UpdateProdutosRequest $request, Produtos $produtos)
     {
         $produtos = $this->produtosRepository->find($id);
 
         if (empty($produtos)) {
-            Flash::error('Produtos not found');
+            Flash::error('Produto não encontrado');
 
             return redirect(route('produtos.index'));
         }
 
         $produtos = $this->produtosRepository->update($request->all(), $id);
 
-        Flash::success('Produtos updated successfully.');
+        Flash::success('Produto atualizado.');
 
         return redirect(route('produtos.index'));
     }
@@ -151,14 +160,14 @@ class ProdutosController extends AppBaseController
         $produtos = $this->produtosRepository->find($id);
 
         if (empty($produtos)) {
-            Flash::error('Produtos not found');
+            Flash::error('Produto não encontrado');
 
             return redirect(route('produtos.index'));
         }
 
         $this->produtosRepository->delete($id);
 
-        Flash::success('Produtos deleted successfully.');
+        Flash::success('Produto deletado.');
 
         return redirect(route('produtos.index'));
     }

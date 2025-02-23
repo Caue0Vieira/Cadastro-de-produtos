@@ -4,11 +4,11 @@
             <thead>
             <tr>
                 <th>Nome</th>
-                <th>Descricao</th>
-                <th>Preco</th>
+                <th>Descrição</th>
+                <th>Preço</th>
                 <th>Quantidade</th>
-                <th>Category Id</th>
-                <th colspan="3">Action</th>
+                <th>Categoria</th>
+                <th colspan="3">Ação</th>
             </tr>
             </thead>
             <tbody>

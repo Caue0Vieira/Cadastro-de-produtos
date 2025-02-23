@@ -6,13 +6,13 @@
 
 <!-- Descricao Field -->
 <div class="col-sm-12">
-    {!! Form::label('descricao', 'Descricao:') !!}
+    {!! Form::label('descricao', 'Descrição:') !!}
     <p>{{ $produtos->descricao }}</p>
 </div>
 
 <!-- Preco Field -->
 <div class="col-sm-12">
-    {!! Form::label('preco', 'Preco:') !!}
+    {!! Form::label('preco', 'Preço:') !!}
     <p>{{ $produtos->preco }}</p>
 </div>
 
