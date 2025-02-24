@@ -37,6 +37,14 @@ Foi utilizado o docker para facilitar a configuração e execução do projeto.
    ```bash
    docker exec -it laravel_app bash
    ```
+4. Instale o Node:
+ ```bash
+   npm install && npm run build && npm install husky
+   ```
+5.Instale o Compose
+ ```bash
+   compose install
+   ```
 
 ## Tecnologias Utilizadas
 
